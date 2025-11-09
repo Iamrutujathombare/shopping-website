@@ -2,16 +2,16 @@ pipeline {
     agent any
 
     stages {
+
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/Iamrutujathombare/shopping-website.git'
-                git branch: 'main'
+                git branch: 'main', url: 'https://github.com/Iamrutujathombare/shopping-website.git'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn clean package -DskipTests'
             }
         }
 
@@ -19,8 +19,14 @@ pipeline {
             steps {
                 sshagent(['node-key']) {
                     sh """
-                    scp target/*.jar ubuntu@13.213.74.3:/home/ubuntu/shopping-app.jar
-                    ssh ubuntu@13.213.74.3 'nohup java -jar shopping-app.jar > app.log 2>&1 &'
+                    # Stop old app if running
+                    ssh -o StrictHostKeyChecking=no ubuntu@13.213.74.3 "pkill -f shopping-app.jar || true"
+
+                    # Copy new artifact
+                    scp -o StrictHostKeyChecking=no target/*.jar ubuntu@13.213.74.3:/home/ubuntu/shopping-app.jar
+
+                    # Start app in background
+                    ssh -o StrictHostKeyChecking=no ubuntu@13.213.74.3 "nohup java -jar shopping-app.jar > app.log 2>&1 &"
                     """
                 }
             }

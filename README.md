@@ -303,12 +303,6 @@ Just edit `index.html` → Git Commit → Jenkins auto deploys.
 ## DONE ✅
 Your CI/CD + Website Deployment is fully working.
 
-If you want, we can now:
-- Add product pages
-- Add login system
-- Add admin dashboard
- 
- 
  ## 👨‍💻 Author
 **Rutuja Thombare**  
 🌐 [LinkedIn](https://www.linkedin.com/in/iamrutujathombare)  

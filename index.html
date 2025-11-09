@@ -1,20 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Clothing Store</title>
+<meta charset="UTF-8">
+<title>TrendyWear - Fashion Collection</title>
+
 <style>
-body { font-family: Arial; background: #f4f4f4; }
-.container { margin: 50px auto; width: 500px; text-align: center; }
-h1 { color: #333; }
-button { padding: 12px 20px; border: none; background: black; color: white; cursor: pointer; }
-button:hover { background: #444; }
+body { margin: 0; font-family: 'Poppins', sans-serif; background: #f8f8f8; }
+
+.navbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 50px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky; top: 0; z-index: 10;
+}
+.navbar h2 { margin: 0; font-size: 24px; color: black; }
+.navbar ul { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
+.navbar li { cursor: pointer; color: #333; font-weight: 500; }
+.navbar li:hover { color: #000; }
+
+.hero {
+  height: 85vh;
+  background: url('https://www.shutterstock.com/image-photo/trendy-beautiful-young-asian-woman-260nw-1590685858.jpg') center/cover no-repeat;
+  display: flex; justify-content: center; align-items: center; text-align: center; color: white;
+}
+.hero h1 { font-size: 50px; margin-bottom: 10px; }
+.hero p { font-size: 18px; margin-bottom: 20px; }
+.hero button {
+  background: black; color: white; border: none; padding: 14px 25px; cursor: pointer;
+  font-size: 16px; border-radius: 4px;
+}
+.hero button:hover { background: #444; }
+
+.products {
+  padding: 50px 80px;
+}
+.products h2 { text-align: center; margin-bottom: 40px; }
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px;
+}
+.card {
+  background: white; border-radius: 8px; padding: 15px; text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.card img { width: 100%; border-radius: 8px; }
+.card h4 { margin: 10px 0 5px; }
+.card p { color: gray; margin: 0; }
+.card button {
+  margin-top: 10px; background: black; color: white; border: none;
+  padding: 10px 20px; cursor: pointer; border-radius: 5px;
+}
+.card button:hover { background: #444; }
 </style>
+
 </head>
 <body>
-<div class="container">
-<h1>Welcome to TrendyWear</h1>
-<p>Explore the latest fashion collection.</p>
-<button>Shop Now</button>
+
+<!-- Navbar -->
+<div class="navbar">
+  <h2>TrendyWear</h2>
+  <ul>
+    <li>Home</li>
+    <li>Men</li>
+    <li>Women</li>
+    <li>Kids</li>
+    <li>Contact</li>
+  </ul>
 </div>
+
+<!-- Hero Section -->
+<div class="hero">
+  <div>
+    <h1>New Winter Collection</h1>
+    <p>Stay stylish and warm with our latest arrivals.</p>
+    <button>Shop Now</button>
+  </div>
+</div>
+
+<!-- Products Section -->
+<div class="products">
+  <h2>Featured Products</h2>
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1528701800489-20be9f5a52e3">
+      <h4>Classic Jacket</h4>
+      <p>₹1,499</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+      <h4>Street Hoodie</h4>
+      <p>₹999</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4a">
+      <h4>Casual T-Shirt</h4>
+      <p>₹499</p>
+      <button>Add to Cart</button>
+    </div>
+
+  </div>
+</div>
+
 </body>
 </html>

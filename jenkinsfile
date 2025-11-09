@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/Iamrutujathombare/shopping-website.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Deploy to Server') {
+            steps {
+                sshagent(['node-key']) {
+                    sh """
+                    scp target/*.jar ubuntu@13.213.74.3:/home/ubuntu/shopping-app.jar
+                    ssh ubuntu@13.213.74.3 'nohup java -jar shopping-app.jar > app.log 2>&1 &'
+                    """
+                }
+            }
+        }
+    }
+}

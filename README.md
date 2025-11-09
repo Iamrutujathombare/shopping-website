@@ -307,3 +307,9 @@ If you want, we can now:
 - Add product pages
 - Add login system
 - Add admin dashboard
+ 
+ 
+ ## 👨‍💻 Author
+**Rutuja Thombare**  
+🌐 [LinkedIn](https://www.linkedin.com/in/iamrutujathombare)  
+📧 rutujathombare7387@gmail.com 
